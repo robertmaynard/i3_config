@@ -171,5 +171,8 @@ for_window [title="Cube Axes"] floating enable
 assign [class="Spotify"] 6
 assign [class="Discord"] 6
 
+#setup network manager [wifi/vpn]
+exec --no-startup-id nm-applet
+
 #setup keychain
-#exec --no-startup-id gnome-keyring-daemon
+exec --no-startup-id gnome-keyring-daemon
