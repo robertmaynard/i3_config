@@ -152,7 +152,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3status --config ~/.config/i3/i3status.conf
+        font pango:Source Code Pro
 }
 
 # Custom bindings and settings
@@ -161,18 +162,11 @@ bindsym $mod+Shift+o exec "gnome-screensaver-command --lock "
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id nitrogen --restore
 
-# Setup controls for VTK test windows
-# Yes the tests have tons of different names :(
-for_window [title="VTK -"] floating enable
-for_window [title="Visualization Toolkit"] floating enable
-for_window [title="Cube Axes"] floating enable
-
-
-assign [class="Spotify"] 6
-assign [class="Discord"] 6
-
-#setup network manager [wifi/vpn]
+#setup network manager [wifi]
 exec --no-startup-id nm-applet
+
+#setup network manager [vpn]
+exec --no-startup-id /opt/cisco/anyconnect/bin/vpnui
 
 #setup keychain
 exec --no-startup-id gnome-keyring-daemon
